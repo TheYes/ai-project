@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #faf8ef;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #776e65;
+    margin-bottom: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.score-container {
+    background: #bbada0;
+    padding: 0.5rem 1.5rem;
+    border-radius: 3px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#new-game {
+    background: #8f7a66;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#new-game:hover {
+    background: #7f6a56;
+}
+
+.game-container {
+    background: #bbada0;
+    padding: 1rem;
+    border-radius: 6px;
+    position: relative;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    position: relative;
+}
+
+.grid-cell {
+    background: rgba(238, 228, 218, 0.35);
+    aspect-ratio: 1;
+    border-radius: 3px;
+}
+
+#tile-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.tile {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out;
+    background: #eee4da;
+    color: #776e65;
+}
+
+.tile[data-value="2"] { background: #eee4da; }
+.tile[data-value="4"] { background: #ede0c8; }
+.tile[data-value="8"] { background: #f2b179; color: #f9f6f2; }
+.tile[data-value="16"] { background: #f59563; color: #f9f6f2; }
+.tile[data-value="32"] { background: #f67c5f; color: #f9f6f2; }
+.tile[data-value="64"] { background: #f65e3b; color: #f9f6f2; }
+.tile[data-value="128"] { background: #edcf72; color: #f9f6f2; font-size: 1.8rem; }
+.tile[data-value="256"] { background: #edcc61; color: #f9f6f2; font-size: 1.8rem; }
+.tile[data-value="512"] { background: #edc850; color: #f9f6f2; font-size: 1.8rem; }
+.tile[data-value="1024"] { background: #edc53f; color: #f9f6f2; font-size: 1.5rem; }
+.tile[data-value="2048"] { background: #edc22e; color: #f9f6f2; font-size: 1.5rem; } 
