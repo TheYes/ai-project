@@ -11,6 +11,7 @@
     <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaderboard.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5Y5JNSKZC9"></script>
     <script>
@@ -23,6 +24,68 @@
 </head>
 
 <body>
+    <div class="leaderboard-container">
+        <h2>历史得分</h2>
+        <div class="best-score">最高分: <span>1444</span></div>
+        <div class="score-trend">
+            <div class="encouragement">保持稳定，尝试新的策略！💪</div>
+        </div>
+        <div class="leaderboard-list">
+            <div class="leaderboard-entry current-score">
+                <span class="date">2025/3/28 13:49:21</span>
+                <span class="score">800</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:21</span>
+                <span class="score">800</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:21</span>
+                <span class="score">800</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">796</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">796</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">784</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">784</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">768</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">732</span>
+            </div>
+
+            <div class="leaderboard-entry ">
+                <span class="date">2025/3/28 13:49:20</span>
+                <span class="score">732</span>
+            </div>
+        </div>
+        <div class="share-section">
+            <button class="share-button" onclick="window.shareScore()">分享我的成绩</button>
+        </div>
+    </div>
+
     <div class="container">
         <h1>2048</h1>
         <div class="header">
@@ -53,6 +116,7 @@
             <div id="tile-container"></div>
         </div>
     </div>
+    <script src="js/leaderboard.js"></script>
     <script src="js/game.js"></script>
 </body>
 

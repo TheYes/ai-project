@@ -1,0 +1,144 @@
+.leaderboard-container {
+  margin-top: 20px;
+  padding: 15px;
+  background: #bbada0;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+.leaderboard-container h2 {
+  margin: 0 0 15px 0;
+  color: #f9f6f2;
+  font-size: 24px;
+  text-align: center;
+}
+
+.best-score {
+  background: #edc53f;
+  color: #f9f6f2;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.score-trend {
+  margin: 10px 0;
+}
+
+.encouragement {
+  background: #eee4da;
+  color: #776e65;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.leaderboard-list {
+  background: #cdc1b4;
+  border-radius: 3px;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.leaderboard-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  margin: 5px 0;
+  background: #eee4da;
+  border-radius: 3px;
+  color: #776e65;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.leaderboard-entry:hover {
+  background: #f2b179;
+}
+
+.leaderboard-entry.current-score {
+  background: #edc53f;
+  color: #f9f6f2;
+  animation: pulse 1s infinite;
+}
+
+.leaderboard-entry .date {
+  font-size: 0.9em;
+  flex-grow: 1;
+}
+
+.leaderboard-entry .score {
+  min-width: 80px;
+  text-align: right;
+  font-size: 1.1em;
+}
+
+.share-section {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.share-button {
+  background: #8f7a66;
+  color: #f9f6f2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.share-button:hover {
+  background: #7c6957;
+}
+
+/* 动画效果 */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 自定义滚动条样式 */
+.leaderboard-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leaderboard-list::-webkit-scrollbar-track {
+  background: #cdc1b4;
+  border-radius: 4px;
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb {
+  background: #bbada0;
+  border-radius: 4px;
+}
+
+.leaderboard-list::-webkit-scrollbar-thumb:hover {
+  background: #8f7a66;
+}
+
+.no-records {
+  padding: 20px;
+  text-align: center;
+  color: #776e65;
+  font-style: italic;
+  background: #eee4da;
+  border-radius: 3px;
+  margin: 10px 0;
+}

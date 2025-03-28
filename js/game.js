@@ -4,6 +4,7 @@ class Game2048 {
         this.score = 0;
         this.tileContainer = document.getElementById('tile-container');
         this.scoreElement = document.getElementById('score');
+        this.scoreHistory = new ScoreHistory();
         this.init();
     }
 
@@ -13,10 +14,13 @@ class Game2048 {
         this.score = 0;
         this.updateScore();
         this.tileContainer.innerHTML = '';
-        
+
         // 添加两个初始数字
         this.addNewTile();
         this.addNewTile();
+
+        // 初始化时更新显示，但不记录分数
+        this.scoreHistory.updateDisplay(0, false);
     }
 
     addNewTile() {
@@ -24,13 +28,13 @@ class Game2048 {
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
                 if (this.grid[i][j] === 0) {
-                    emptyCells.push({x: i, y: j});
+                    emptyCells.push({ x: i, y: j });
                 }
             }
         }
 
         if (emptyCells.length > 0) {
-            const {x, y} = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            const { x, y } = emptyCells[Math.floor(Math.random() * emptyCells.length)];
             const value = Math.random() < 0.9 ? 2 : 4;
             this.grid[x][y] = value;
             this.createTileElement(x, y, value);
@@ -42,20 +46,22 @@ class Game2048 {
         tile.className = 'tile';
         tile.textContent = value;
         tile.dataset.value = value;
-        
+
         const cellSize = 100; // 假设每个格子是100px
-        const gap = 16; // 假设间隙是16px
-        
+        const gap = 12; // 假设间隙是16px
+
         tile.style.width = cellSize + 'px';
         tile.style.height = cellSize + 'px';
         tile.style.left = (y * (cellSize + gap)) + 'px';
         tile.style.top = (x * (cellSize + gap)) + 'px';
-        
+
         this.tileContainer.appendChild(tile);
     }
 
     updateScore() {
         this.scoreElement.textContent = this.score;
+        // 只更新显示，不记录历史
+        this.scoreHistory.updateDisplay(this.score, false);
     }
 
     move(direction, isRecursive = false) {
@@ -113,7 +119,7 @@ class Game2048 {
             this.updateScore();
             this.updateDisplay();
             this.addNewTile();
-            
+
             // 只在非递归调用时检查游戏结束
             if (!isRecursive && this.isGameOver()) {
                 setTimeout(() => {
@@ -157,6 +163,8 @@ class Game2048 {
             }
         }
 
+        // 游戏结束时才记录历史
+        this.scoreHistory.updateScore(this.score);
         return true;
     }
 }
@@ -167,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 键盘控制
     document.addEventListener('keydown', (e) => {
-        switch(e.key) {
+        switch (e.key) {
             case 'ArrowLeft':
                 e.preventDefault();
                 game.move('left');
